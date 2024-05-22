@@ -13,6 +13,7 @@
             height: 100%;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #4c2a4c; /* Dark pastel color */
@@ -40,10 +41,17 @@
             object-fit: contain;
             z-index: 2;
         }
+        #disqus_thread {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
     <img id="randomImage" alt="Blaine's Picture">
+    <div id="disqus_thread"></div>
     <script>
         const images = [
             '/assets/blaine-images/image1.jpeg',
@@ -58,7 +66,26 @@
             return images[randomIndex];
         }
 
-        document.getElementById('randomImage').src = getRandomImage();
+        const randomImage = getRandomImage();
+        document.getElementById('randomImage').src = randomImage;
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        var disqus_config = function () {
+            this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = randomImage; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://blaine-pics.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//blaine-pics.disqus.com/count.js" async></script>
 </body>
 </html>
