@@ -38,11 +38,11 @@
         }
         img {
             max-width: 100%;
-            max-height: calc(100vh - 200px); /* Ensure image does not exceed view height minus some space for Disqus */
+            max-height: calc(100vh - 200px); /* Ensure image does not exceed view height minus some space for Giscus */
             object-fit: contain;
             z-index: 2;
         }
-        #disqus_thread {
+        #giscus_thread {
             width: 100%;
             max-width: 800px;
             margin-top: 20px;
@@ -63,7 +63,7 @@
 <body>
     <div class="content">
         <img id="randomImage" alt="Blaine's Picture">
-        <div id="disqus_thread"></div>
+        <div id="giscus_thread" class="giscus"></div>
     </div>
     <script>
         const images = [
@@ -81,20 +81,21 @@
 
         const randomImage = getRandomImage();
         document.getElementById('randomImage').src = randomImage;
-
-        var disqus_config = function () {
-            this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = randomImage; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://blaine-pics.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <script id="dsq-count-scr" src="//blaine-pics.disqus.com/count.js" async></script>
+    <script src="https://giscus.app/client.js"
+        data-repo="shehzad02/blaine.pics"
+        data-repo-id="R_kgDOL95rkA"
+        data-category="General"
+        data-category-id="DIC_kwDOL95rkM4Cfhwl"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="purple_dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+    </script>
 </body>
 </html>
