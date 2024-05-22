@@ -43,6 +43,20 @@
     </style>
 </head>
 <body>
-    <img src="/assets/image.jpg" alt="Blaine's Picture">
+    <img id="randomImage" alt="Blaine's Picture">
+    <script>
+        const images = [
+            '/assets/image1.jpg',
+            '/assets/image2.jpg',
+            '/assets/image3.jpg',
+        ];
+
+        function getRandomImage() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            return images[randomIndex];
+        }
+
+        document.getElementById('randomImage').src = getRandomImage();
+    </script>
 </body>
 </html>
